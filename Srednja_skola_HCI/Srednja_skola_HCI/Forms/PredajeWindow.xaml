@@ -1,0 +1,52 @@
+﻿<Window x:Class="Srednja_skola_HCI.Forms.PredajeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Srednja_skola_HCI.Forms"
+        mc:Ignorable="d"
+        xmlns:p="clr-namespace:Srednja_skola_HCI.Util"
+         xmlns:tb="clr-namespace:Srednja_skola_HCI"
+        xmlns:dgx="clr-namespace:DataGridExtensions;assembly=DataGridExtensions"  
+        Title="PredajeWindow" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize"
+        AllowsTransparency="True" >
+    <Border>
+        <Grid Style="{DynamicResource GridStyle }">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="48" />
+                <RowDefinition Height="1" />
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <tb:TopBarUserControl x:Name="Header"></tb:TopBarUserControl>
+            </Grid>
+            <Grid Grid.Row="1" Background="{DynamicResource SeparatorColor}"/>
+            <Grid Grid.Row="2">
+                <DataGrid Name="predajeDG" ColumnWidth="Auto" 
+              AutoGenerateColumns="False" dgx:DataGridFilter.IsAutoFilterEnabled="True" CanUserAddRows="True">
+
+
+                    <DataGrid.Columns>
+                        <DataGridComboBoxColumn  Header="{p:Loc JMBHeader}" x:Name="ProfJMBCMB"
+                            SelectedValueBinding="{Binding Profesor.Osoba.JMB}"
+                            SelectedValuePath="JMB"
+                            DisplayMemberPath="JMB" />
+                        <DataGridTextColumn Header="{p:Loc BrojSedmicnihCasovaHeader}" Binding="{Binding BrojSedmicnihCasova, ValidatesOnExceptions=True}"/>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Style="{StaticResource ImageButton}"  Click="Delete_Click"  Cursor="Hand">
+                                        <Button.Background>
+                                            <ImageBrush ImageSource="/Resources/delete-24x24.png" Stretch="Uniform" />
+                                        </Button.Background>
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

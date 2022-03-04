@@ -1,0 +1,102 @@
+﻿<Window x:Class="Srednja_skola_HCI.Forms.ProfesorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Srednja_skola_HCI.Forms"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+         xmlns:p="clr-namespace:Srednja_skola_HCI.Util"
+         xmlns:tb="clr-namespace:Srednja_skola_HCI"
+        Title="ProfesorWindow" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize"
+        AllowsTransparency="True" >
+    <Window.Resources>
+        <Style x:Key="ImageButton" TargetType="Button">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid Background="{TemplateBinding Background}">
+                            <ContentPresenter />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <ObjectDataProvider MethodName="GetValues" ObjectType="{x:Type sys:Enum}" x:Key="GetEnumValues">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="local:Pol"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+    <Border>
+        <Grid Style="{DynamicResource GridStyle }">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="48" />
+                <RowDefinition Height="1" />
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <tb:TopBarUserControl  x:Name="Header"></tb:TopBarUserControl>
+            </Grid>
+            <Grid Grid.Row="1" Background="{DynamicResource SeparatorColor}"/>
+            <Grid Grid.Row="2">
+
+                <DataGrid Name="profesorDG" 
+              AutoGenerateColumns="False" ColumnWidth="Auto" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="{p:Loc JMBHeader}" Binding="{Binding Path=Osoba.JMB}"/>
+                        <DataGridTextColumn Header="{p:Loc ImeHeader}" Binding="{Binding Path=Osoba.Ime}"/>
+                        <DataGridTextColumn Header="{p:Loc PrezimeHeader}" Binding="{Binding Path=Osoba.Prezime}"/>
+                        <DataGridTemplateColumn Header="{p:Loc DatumRodjenjaHeader}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <DatePicker SelectedDate="{Binding Path=Osoba.DatumRodjenja, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        
+                        <DataGridComboBoxColumn Header="{p:Loc PolHeader}" ItemsSource="{Binding Source={StaticResource GetEnumValues}}" SelectedValueBinding="{Binding Path=Osoba.Pol}" />
+                        <DataGridTextColumn Header="{p:Loc AdresaHeader}" Binding="{Binding Path=Osoba.Adresa}" />
+                        <DataGridTextColumn Header="{p:Loc MailHeader}" Binding="{Binding Path=Osoba.MailAdresa}"/>
+                        <DataGridTextColumn Header="{p:Loc LozinkaHeader}"  Binding="{Binding Path=Osoba.Lozinka}"/>
+                        <DataGridCheckBoxColumn Header="{p:Loc VerifikovanHeader}" Binding="{Binding Path=Verifikovan}"></DataGridCheckBoxColumn>
+                        <DataGridTextColumn Header="{p:Loc PlataHeader}" Binding="{Binding Path=Plata, ValidatesOnExceptions=True}"/>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Style="{StaticResource ImageButton}" Click="Delete_Click"  Cursor="Hand">
+                                        <Button.Background>
+                                            <ImageBrush ImageSource="/Resources/delete-24x24.png" Stretch="Uniform" />
+                                        </Button.Background>
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                    
+                    <DataGrid.RowValidationRules>
+                        <local:ProfesorValidationRule ValidationStep="UpdatedValue"/>
+                    </DataGrid.RowValidationRules>
+
+                    <DataGrid.RowValidationErrorTemplate>
+                        <ControlTemplate>
+                            <Grid Margin="0,-2,0,-2"
+            ToolTip="{Binding RelativeSource={RelativeSource
+            FindAncestor, AncestorType={x:Type DataGridRow}},
+            Path=(Validation.Errors)[0].ErrorContent}">
+                                <Image Source="/Resources/error.png" ToolTip="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGridRow}}, Path=(Validation.Errors)[0].ErrorContent}"
+                   Margin="0"
+                   Width="11" Height="11" />
+                            </Grid>
+                        </ControlTemplate>
+                    </DataGrid.RowValidationErrorTemplate>
+                </DataGrid>
+             
+                
+                
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

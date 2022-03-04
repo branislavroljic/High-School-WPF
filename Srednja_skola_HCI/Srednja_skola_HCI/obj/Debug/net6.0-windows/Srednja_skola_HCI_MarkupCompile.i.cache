@@ -1,0 +1,20 @@
+﻿Srednja_skola_HCI
+1.0.0.0
+
+winexe
+C#
+.cs
+C:\Users\legion\Desktop\IV godina BANE\HCI\VS\Srednja_skola_HCI\obj\Debug\net6.0-windows\
+Srednja_skola_HCI
+none
+false
+TRACE;DEBUG;NET;NET6_0;NETCOREAPP
+C:\Users\legion\Desktop\IV godina BANE\HCI\VS\Srednja_skola_HCI\App.xaml
+20992319747
+
+62-145171272
+204681772995
+AdminWindow.xaml;Dialogs\ErrorDialog.xaml;Dialogs\YesNoDialog.xaml;Dictionary.xaml;Forms\PredajeWindow.xaml;Forms\PredmetNaSmjeruWindow.xaml;Forms\ProfesorWindow.xaml;Forms\ProvjeraWindow.xaml;Forms\RadiProvjeruWindow.xaml;Forms\SkolaWindow.xaml;Forms\SmjerWindow.xaml;Forms\UcenikDetaljnoWindow.xaml;Login.xaml;MenuWindow_Admin.xaml;MenuWindow_Profesor.xaml;Resources\Themes\BlueTheme.xaml;Resources\Themes\DarkTheme.xaml;Resources\Themes\WhiteTheme.xaml;SettingsWindow.xaml;TopBarUserControl.xaml;
+
+False
+

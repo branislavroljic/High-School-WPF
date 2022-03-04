@@ -1,0 +1,4 @@
+1.  Podrška za različite tipove korisničkih naloga - postoje dva tipa korisnika : Admin i Profesor
+2. Internacionalizacija - svi korisnici imaju izbor SR ili EN jezika
+3. Korisnička podešavanja - svi korisnici mogu birati jednu od 3 teme. Svaka tema nudi razlicite kombinacije boja i razlicite stilove fontova.
+4.  Korisničko uputstvo - u prilogu je i korisničko uputstvo

@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="AdminWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Dialogs\ErrorDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Dialogs\YesNoDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Login.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Forms\PredajeWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Forms\PredmetNaSmjeruWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Forms\ProfesorWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Forms\ProvjeraWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Forms\RadiProvjeruWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Forms\SkolaWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Forms\SmjerWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Forms\UcenikDetaljnoWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MenuWindow_Admin.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MenuWindow_Profesor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SettingsWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="TopBarUserControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.sr.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="AdminWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dialogs\ErrorDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dialogs\YesNoDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dictionary.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Login.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Forms\PredajeWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Forms\PredmetNaSmjeruWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Forms\ProfesorWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Forms\ProvjeraWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Forms\RadiProvjeruWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Forms\SkolaWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Forms\SmjerWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Forms\UcenikDetaljnoWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MenuWindow_Admin.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MenuWindow_Profesor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Themes\BlueTheme.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Themes\DarkTheme.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Themes\WhiteTheme.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SettingsWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="TopBarUserControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

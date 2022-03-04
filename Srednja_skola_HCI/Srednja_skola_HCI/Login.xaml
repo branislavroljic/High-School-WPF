@@ -1,0 +1,46 @@
+﻿<Window x:Class="Srednja_skola_HCI.Forms.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Srednja_skola_HCI.Forms"
+         xmlns:p="clr-namespace:Srednja_skola_HCI.Util"
+         xmlns:tb="clr-namespace:Srednja_skola_HCI"
+        mc:Ignorable="d"
+        Title="Login" Height="450" Width="300" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize"
+        AllowsTransparency="True" Background="White" >
+  
+    <Border>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="48" />
+                <RowDefinition Height="1" />
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <tb:TopBarUserControl x:Name="Header"></tb:TopBarUserControl>
+            </Grid>
+            <Grid Grid.Row="1" Background="{DynamicResource SeparatorColor}"/>
+            <Grid Grid.Row="2">
+
+
+                <TextBox x:Name="Mail" Margin="101,19,24,354" FontSize="14" VerticalContentAlignment="Center" KeyDown="ReturnKeyDown" Background="#FFDAF2FF"/>
+
+
+                <Label x:Name="loginPassword" Content="Password" Margin="25,67,204,310" FontFamily="Times New Roman" FontSize="14"/>
+                <PasswordBox x:Name="Password" Margin="101,67,24,310" FontSize="14" VerticalContentAlignment="Center" KeyDown="ReturnKeyDown" Background="#FFDAF2FF"/>
+
+                <Image Source="/Resources/school-logo.png" Margin="0,136,0,89" />
+
+                <Button Cursor="Hand" x:Name="loginButton" Content="Login" Margin="36,353,24,20" Click="Login_Click" Background="#FF092C5B" Foreground="#FFFBFBFB"/>
+
+                <Canvas Name="ErrorMessage" Margin="0,108,0,267" Background="#FFF1BCBC" Visibility="Hidden">
+                    <Label Content="Invalid mail or password! Please try again." Width="254" FontStyle="Italic" FontSize="12"  Foreground="Black" Canvas.Left="36" Canvas.Top="3"/>
+                </Canvas>
+                <Label Content="E-mail" HorizontalAlignment="Left" Margin="29,21,0,0" VerticalAlignment="Top" FontFamily="Times New Roman" FontSize="14"/>
+            </Grid>
+        </Grid>
+    </Border>
+
+</Window>

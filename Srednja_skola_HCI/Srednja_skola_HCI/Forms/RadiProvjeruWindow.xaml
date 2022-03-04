@@ -1,0 +1,102 @@
+﻿<Window x:Class="Srednja_skola_HCI.Forms.RadiProvjeruWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Srednja_skola_HCI.Forms"
+        xmlns:p="clr-namespace:Srednja_skola_HCI.Util"
+         xmlns:sys="clr-namespace:System;assembly=mscorlib"
+         xmlns:tb="clr-namespace:Srednja_skola_HCI"
+        xmlns:dgx="clr-namespace:DataGridExtensions;assembly=DataGridExtensions"    
+        mc:Ignorable="d"
+        Title="RadiProvjeruWindow" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize"
+        AllowsTransparency="True" >
+    <Window.Resources>
+        <Style x:Key="ImageButton" TargetType="Button">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid Background="{TemplateBinding Background}">
+                            <ContentPresenter />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <ObjectDataProvider MethodName="GetValues" ObjectType="{x:Type sys:Enum}" x:Key="GetEnumValues">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="local:Ocjena"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
+    </Window.Resources>
+    <Border>
+        <Grid Style="{DynamicResource GridStyle }">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="48" />
+                <RowDefinition Height="1" />
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <tb:TopBarUserControl  x:Name="Header"></tb:TopBarUserControl>
+            </Grid>
+            <Grid Grid.Row="1" Background="{DynamicResource SeparatorColor}"/>
+            <Grid Grid.Row="2">
+                <DataGrid  Name="radiProvjeruDG" 
+              AutoGenerateColumns="False" CanUserAddRows="False"  ColumnWidth="Auto">
+        <DataGrid.GroupStyle>
+            <!-- Style for groups at top level. -->
+            <GroupStyle>
+                <GroupStyle.ContainerStyle>
+                    <Style TargetType="{x:Type GroupItem}">
+                        <Setter Property="Margin" Value="0,0,0,5"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type GroupItem}">
+                                    <Expander IsExpanded="True" Background="White" Foreground="Black" BorderThickness="1,1,1,5">
+                                        <Expander.Header>
+                                            <TextBlock FontWeight="Bold" Text="{Binding Items[0].Provjera.PredmetNaSmjeru.Predmet.IdPredmeta}" Width="100" DockPanel.Dock="Left" Margin="5,0,0,0"/>
+                                        </Expander.Header>
+                                        <Expander.Content>
+                                            <ItemsPresenter />
+                                        </Expander.Content>
+                                    </Expander>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </GroupStyle.ContainerStyle>
+            </GroupStyle>
+        </DataGrid.GroupStyle>
+        <DataGrid.Columns>
+            <DataGridTextColumn Header="{p:Loc NazivPredmetaHeader}" Binding="{Binding Provjera.PredmetNaSmjeru.Predmet.Naziv}"  IsReadOnly="True" />
+           
+            <DataGridTextColumn Header="{p:Loc DatumHeader}" Binding="{Binding Provjera.Datum}"  IsReadOnly="True"/>
+            <DataGridTextColumn Header="{p:Loc TipHeader}" Binding="{Binding Provjera.TipProvjere}"  IsReadOnly="True" />
+            <DataGridComboBoxColumn Header="{p:Loc OcjenaHeader}" ItemsSource="{Binding Source={StaticResource GetEnumValues}}" SelectedValueBinding="{Binding Path=Ocjena}"/>
+        </DataGrid.Columns>
+
+                    <DataGrid.RowValidationRules>
+                        <local:SkolaValidationRule ValidationStep="UpdatedValue"/>
+                    </DataGrid.RowValidationRules>
+
+                    <DataGrid.RowValidationErrorTemplate>
+                        <ControlTemplate>
+                            <Grid Margin="0,-2,0,-2"
+            ToolTip="{Binding RelativeSource={RelativeSource
+            FindAncestor, AncestorType={x:Type DataGridRow}},
+            Path=(Validation.Errors)[0].ErrorContent}">
+                                <Image Source="/Resources/error.png" ToolTip="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGridRow}}, Path=(Validation.Errors)[0].ErrorContent}"
+                   Margin="0"
+                   Width="11" Height="11" />
+                            </Grid>
+                        </ControlTemplate>
+                    </DataGrid.RowValidationErrorTemplate>
+                </DataGrid>
+    <!--</Grid>-->
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

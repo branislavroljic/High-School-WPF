@@ -1,0 +1,91 @@
+﻿<Window x:Class="Srednja_skola_HCI.Forms.UcenikDetaljnoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Srednja_skola_HCI.Forms"
+        xmlns:p="clr-namespace:Srednja_skola_HCI.Util"
+         xmlns:tb="clr-namespace:Srednja_skola_HCI"
+        mc:Ignorable="d"
+        Title="UcenikDetaljnoWindow" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize"
+        AllowsTransparency="True" >
+    <Window.Resources>
+
+
+    </Window.Resources>
+    <Border>
+        <Grid Style="{DynamicResource GridStyle }">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="48" />
+                <RowDefinition Height="1" />
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <tb:TopBarUserControl  x:Name="Header"></tb:TopBarUserControl>
+            </Grid>
+            <Grid Grid.Row="1" Background="{DynamicResource SeparatorColor}"/>
+            <Grid Grid.Row="2">
+                <DataGrid  Name="uceniciDetaljnoDG" 
+              AutoGenerateColumns="False" CanUserAddRows="False"  ColumnWidth="Auto">
+            <DataGrid.GroupStyle>
+                <!-- Style for groups at top level. -->
+                <GroupStyle>
+                    <GroupStyle.ContainerStyle>
+                                <Style TargetType="{x:Type GroupItem}">
+                                    <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type GroupItem}">
+                                                <Expander IsExpanded="True" Background="{DynamicResource ExpanderBackgroundColor}" Foreground="{DynamicResource ExpanderForegroundColor}" BorderThickness="1,1,1,5">
+                                            <Expander.Header>
+                                                <DockPanel>
+                                                    <TextBlock FontWeight="Bold" Text="{Binding Items[0].Smjer}"  FontFamily="Comic Sans MS"  Margin="5,0,0,0"/>
+                                                    <TextBlock FontWeight="Bold" Text="{Binding Items[0].Razred}" FontFamily="Comic Sans MS" />
+                                        
+                                                </DockPanel>
+                                            </Expander.Header>
+                                            <Expander.Content>
+                                                <ItemsPresenter />
+                                            </Expander.Content>
+                                        </Expander>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </GroupStyle.ContainerStyle>
+                </GroupStyle>
+                <!-- Style for groups under the top level. -->
+                        <GroupStyle>
+                            <GroupStyle.HeaderTemplate>
+                                <DataTemplate>
+                                    <DockPanel Background="Transparent">
+                                        <TextBlock FontWeight="Bold"  Text="{Binding Items[0].Smjer, StringFormat={}Smjer: {0}}"  Margin="30,0,0,0" FontFamily="Comic Sans MS"/>
+                                        <TextBlock FontWeight="Bold" Text="{Binding Items[0].Razred,StringFormat={}Razred: {0}}" Padding="5,0,0,0" FontFamily="Comic Sans MS"/>
+                                    </DockPanel>
+                                </DataTemplate>
+                            </GroupStyle.HeaderTemplate>
+                        </GroupStyle>
+                    </DataGrid.GroupStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{p:Loc JMBHeader}" Binding="{Binding JMB}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="{p:Loc ImeHeader}" Binding="{Binding Ime}"  IsReadOnly="True"/>
+                <DataGridTextColumn Header="{p:Loc PrezimeHeader}" Binding="{Binding Prezime}"  IsReadOnly="True"/>
+                <DataGridTextColumn Header="{p:Loc NazivSkoleHeader}" Binding="{Binding Skola}"  IsReadOnly="True"/>
+                <DataGridTextColumn Header="{p:Loc NazivSmjeraHeader}" Binding="{Binding Smjer}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="{p:Loc RazredHeader}" Binding="{Binding Razred}"  ElementStyle="{StaticResource DataGridCellCentered}" IsReadOnly="True" />
+                <DataGridTextColumn Header="{p:Loc OdjeljenjeHeader}" Binding="{Binding Odjeljenje}"  ElementStyle="{StaticResource DataGridCellCentered}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="{p:Loc ProsjekOcjenaHeader}" Binding="{Binding Prosjek}"   ElementStyle="{StaticResource DataGridCellCentered}" IsReadOnly="True"/>
+                        <DataGridTemplateColumn Header="{p:Loc OcjenaHeader}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="{p:Loc PogledajButton}" Click="Ocijeni_Click">
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+        </DataGrid>
+ 
+        </Grid>
+        </Grid>
+    </Border>
+</Window>

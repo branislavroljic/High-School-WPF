@@ -1,0 +1,98 @@
+﻿<Window x:Class="Srednja_skola_HCI.Forms.PredmetNaSmjeruWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:p="clr-namespace:Srednja_skola_HCI.Util"
+        xmlns:dgx="clr-namespace:DataGridExtensions;assembly=DataGridExtensions"  
+        xmlns:local="clr-namespace:Srednja_skola_HCI.Forms"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:tb="clr-namespace:Srednja_skola_HCI"
+        mc:Ignorable="d"
+        Title="PredmetNaSmjeruWindow" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize"
+        AllowsTransparency="True" >
+    <Window.Resources>
+        <ObjectDataProvider MethodName="GetValues" ObjectType="{x:Type sys:Enum}" x:Key="GetEnumValues">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="local:TipPredmeta"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+    <Border>
+        <Grid Style="{DynamicResource GridStyle }">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="48" />
+                <RowDefinition Height="1" />
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <tb:TopBarUserControl x:Name="Header"></tb:TopBarUserControl>
+            </Grid>
+            <Grid Grid.Row="1" Background="{DynamicResource SeparatorColor}"/>
+            <Grid Grid.Row="2">
+                <DataGrid Name="pNaSDG" ColumnWidth="Auto"
+              AutoGenerateColumns="False" dgx:DataGridFilter.IsAutoFilterEnabled="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="{p:Loc IdPredmetaHeader}" Binding="{Binding Predmet.IdPredmeta, ValidatesOnExceptions=True}"/>
+                        <DataGridTextColumn Header="{p:Loc NazivPredmetaHeader}" Binding="{Binding Predmet.Naziv}"/>
+                        <DataGridComboBoxColumn x:Name="IDSmjeraCMB" 
+                       Header="{p:Loc NazivSmjeraHeader}"
+                        SelectedValueBinding="{Binding Smjer.IdSmjera}"
+                            SelectedValuePath="IdSmjera"
+                            DisplayMemberPath="Naziv"/>
+
+                        <DataGridComboBoxColumn Header="{p:Loc TipPredmetaHeader}" ItemsSource="{Binding Source={StaticResource GetEnumValues}}" SelectedValueBinding="{Binding Tip}" />
+
+                        <DataGridTextColumn Header="{p:Loc RazredHeader}" >
+                            <DataGridTextColumn.Binding>
+                                <Binding Path="Razred">
+                                    <Binding.ValidationRules>
+                                        <local:RazredValidationRule />
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </DataGridTextColumn.Binding>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="{p:Loc MinimalniBrojPismenihProvjeraHeader}" Binding="{Binding MinimalniBrojPismenihProvjera, ValidatesOnExceptions=True}" />
+                        <DataGridTextColumn Header="{p:Loc MinimalniBrojUsmenihProvjera}" Binding="{Binding MinimalniBrojUsmenihProvjera, ValidatesOnExceptions=True}" />
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Style="{StaticResource ImageButton}" Click="Delete_Click"  Cursor="Hand">
+                                        <Button.Background>
+                                            <ImageBrush ImageSource="/Resources/delete-24x24.png" Stretch="Uniform"/>
+                                        </Button.Background>
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="{p:Loc PredavaciHeader}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="{p:Loc PogledajButton}" Click="Idi_Click">
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+
+                    <DataGrid.RowValidationRules>
+                        <local:PNSValidationRule ValidationStep="UpdatedValue"/>
+                    </DataGrid.RowValidationRules>
+
+                    <DataGrid.RowValidationErrorTemplate>
+                        <ControlTemplate>
+                            <Grid Margin="0,-2,0,-2"
+            ToolTip="{Binding RelativeSource={RelativeSource
+            FindAncestor, AncestorType={x:Type DataGridRow}},
+            Path=(Validation.Errors)[0].ErrorContent}">
+                                <Image Source="/Resources/error.png" ToolTip="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGridRow}}, Path=(Validation.Errors)[0].ErrorContent}"
+                   Margin="0"
+                   Width="11" Height="11" />
+                            </Grid>
+                        </ControlTemplate>
+                    </DataGrid.RowValidationErrorTemplate>
+                </DataGrid>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

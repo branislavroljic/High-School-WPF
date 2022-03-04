@@ -1,0 +1,75 @@
+﻿<Window x:Class="Srednja_skola_HCI.Forms.SkolaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:dgx="clr-namespace:DataGridExtensions;assembly=DataGridExtensions"
+        xmlns:local="clr-namespace:Srednja_skola_HCI.Forms"    
+         xmlns:ext="urn:tom-englert.de/DataGridExtensions"
+        xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:p="clr-namespace:Srednja_skola_HCI.Util"
+        xmlns:tb="clr-namespace:Srednja_skola_HCI"
+        mc:Ignorable="d"
+        Title="SkolaWindow" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize"
+        AllowsTransparency="True">
+
+    <Border>
+        <Grid Style="{DynamicResource GridStyle }">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="48" />
+                <RowDefinition Height="1" />
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <tb:TopBarUserControl x:Name="Header"></tb:TopBarUserControl>
+            </Grid>
+            <Grid Grid.Row="1" Background="{DynamicResource SeparatorColor}"/>
+            <Grid Grid.Row="2">
+                <DataGrid Name="skoleDG" ColumnWidth="Auto"
+              AutoGenerateColumns="False" CanUserAddRows="True"  dgx:DataGridFilter.IsAutoFilterEnabled="True">
+                   
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="{p:Loc JIBHeader}" Binding="{Binding JIB}"/>
+                        <DataGridTextColumn Header="{p:Loc NazivSkoleHeader}" Binding="{Binding Naziv}" />
+                        <DataGridTextColumn Header="{p:Loc VrstaSkoleHeader}" Binding="{Binding Vrsta}" />
+                        <DataGridTextColumn Header="{p:Loc MailAdresaHeader}" Binding="{Binding MailAdresa}"/>
+                        <DataGridTextColumn Header="{p:Loc AdresaHeader}" Binding="{Binding Adresa}" />
+                        <DataGridTextColumn Header="{p:Loc TelefonHeader}" Binding="{Binding Telefon}"/>
+
+                        <DataGridTemplateColumn  dgx:DataGridFilterColumn.IsFilterVisible="False">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Click="Delete_Click" Style="{StaticResource ImageButton}" Cursor="Hand">
+                                        <Button.Background>
+                                            <ImageBrush ImageSource="/Resources/delete-24x24.png" Stretch="Uniform" />
+                                        </Button.Background>
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+
+                    <DataGrid.RowValidationRules>
+                        <local:SkolaValidationRule ValidationStep="UpdatedValue"/>
+                    </DataGrid.RowValidationRules>
+
+                    <DataGrid.RowValidationErrorTemplate>
+                        <ControlTemplate>
+                            <Grid Margin="0,-2,0,-2"
+            ToolTip="{Binding RelativeSource={RelativeSource
+            FindAncestor, AncestorType={x:Type DataGridRow}},
+            Path=(Validation.Errors)[0].ErrorContent}">
+                                <Image Source="/Resources/error.png" ToolTip="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGridRow}}, Path=(Validation.Errors)[0].ErrorContent}"
+                   Margin="0"
+                   Width="11" Height="11" />
+                            </Grid>
+                        </ControlTemplate>
+                    </DataGrid.RowValidationErrorTemplate>
+                    
+
+                </DataGrid>
+
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

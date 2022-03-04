@@ -1,0 +1,65 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\add-24x24.png" />
+    <None Remove="Resources\delete-24x24.png" />
+    <None Remove="Resources\error.png" />
+    <None Remove="Resources\gears.png" />
+    <None Remove="Resources\logout-icon.png" />
+    <None Remove="Resources\mail.png" />
+    <None Remove="Resources\school-logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\error.png" />
+    <Resource Include="Resources\logout-icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DataGridExtensions" Version="2.5.13" />
+    <PackageReference Include="MySql.Data" Version="8.0.27" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\add-24x24.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\delete-24x24.png" />
+    <Resource Include="Resources\gears.png" />
+    <Resource Include="Resources\mail.png" />
+    <Resource Include="Resources\school-logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.sr.Designer.cs">
+      <DependentUpon>Resources.sr.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.sr.resx">
+      <LastGenOutput>Resources.sr.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,30 @@
+﻿<Window x:Class="Srednja_skola_HCI.Dialogs.ErrorDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Srednja_skola_HCI.Dialogs"
+        mc:Ignorable="d"
+         xmlns:p="clr-namespace:Srednja_skola_HCI.Util"
+         xmlns:tb="clr-namespace:Srednja_skola_HCI"
+        Title="YesNoDialog" Height="150" Width="250" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize"
+        AllowsTransparency="True" Background="White" >
+    <Border>
+        <Grid Style="{DynamicResource GridStyle}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="48" />
+                <RowDefinition Height="1" />
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <tb:TopBarUserControl  x:Name="Header"></tb:TopBarUserControl>
+            </Grid>
+            <Grid Grid.Row="1" Background="{DynamicResource SeparatorColor}"/>
+            <Canvas Grid.Row="2">
+                <TextBlock TextWrapping="WrapWithOverflow" Canvas.Left="21" Canvas.Top="10" Width="198" Name="questionTB" Foreground="#FFF11414">Tekst</TextBlock>
+                <Button IsDefault="True" Name="btnDialogOk" Click="btnDialogOk_Click" MinWidth="60" Canvas.Left="95" Canvas.Top="67">OK</Button>
+
+            </Canvas>
+        </Grid>
+    </Border>
+</Window>

@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AdresaHeader" xml:space="preserve">
+    <value>Adresa</value>
+  </data>
+  <data name="BrisanjeHeader" xml:space="preserve">
+    <value>Izbriši</value>
+  </data>
+  <data name="BrojNegativnihHeader" xml:space="preserve">
+    <value>Broj negativnih ocjena</value>
+  </data>
+  <data name="BrojPrisutnihHeader" xml:space="preserve">
+    <value>Broj prisutnih učenika</value>
+  </data>
+  <data name="BrojSedmicnihCasovaHeader" xml:space="preserve">
+    <value>Broj sedmičnih časova</value>
+  </data>
+  <data name="CancelButton" xml:space="preserve">
+    <value>Otkaži</value>
+  </data>
+  <data name="DarkRB" xml:space="preserve">
+    <value>Tamna</value>
+  </data>
+  <data name="DatumHeader" xml:space="preserve">
+    <value>Datum</value>
+  </data>
+  <data name="DatumRodjenjaHeader" xml:space="preserve">
+    <value>Datum rodjenja</value>
+  </data>
+  <data name="DeleteError" xml:space="preserve">
+    <value>Dogodila se greška prilikom brisanja!</value>
+  </data>
+  <data name="DodavanjeMessage" xml:space="preserve">
+    <value>Dodavanje uspješno!</value>
+  </data>
+  <data name="ErrorHeader" xml:space="preserve">
+    <value>Greška!</value>
+  </data>
+  <data name="ExceptionMessage" xml:space="preserve">
+    <value>Dogodila se greška prilikom izvršavanja akcije. Provjerite jedinstvenost relevantnih podataka.</value>
+  </data>
+  <data name="GreenRB" xml:space="preserve">
+    <value>Zelena</value>
+  </data>
+  <data name="IdPredmetaHeader" xml:space="preserve">
+    <value>ID predmeta</value>
+  </data>
+  <data name="IdSmjeraHeader" xml:space="preserve">
+    <value>ID smjera</value>
+  </data>
+  <data name="ImeHeader" xml:space="preserve">
+    <value>Ime</value>
+  </data>
+  <data name="IzmjenaMessage" xml:space="preserve">
+    <value>Izmjena uspješna!</value>
+  </data>
+  <data name="JezikLabel" xml:space="preserve">
+    <value>Jezik</value>
+  </data>
+  <data name="JIBHeader" xml:space="preserve">
+    <value>JIB</value>
+  </data>
+  <data name="JMBHeader" xml:space="preserve">
+    <value>JMB</value>
+  </data>
+  <data name="LoginButton" xml:space="preserve">
+    <value>Uloguj se</value>
+  </data>
+  <data name="LoginHeader" xml:space="preserve">
+    <value>Prijava</value>
+  </data>
+  <data name="loginMailText" xml:space="preserve">
+    <value>Mail:</value>
+  </data>
+  <data name="loginPasswordText" xml:space="preserve">
+    <value>Lozinka:</value>
+  </data>
+  <data name="LozinkaHeader" xml:space="preserve">
+    <value>Lozinka</value>
+  </data>
+  <data name="MailAdresaHeader" xml:space="preserve">
+    <value>Mail adresa</value>
+  </data>
+  <data name="MailHeader" xml:space="preserve">
+    <value>Mail</value>
+  </data>
+  <data name="MeniHeader" xml:space="preserve">
+    <value>Meni</value>
+  </data>
+  <data name="MinimalniBrojPismenihProvjeraHeader" xml:space="preserve">
+    <value>Min. pismenih provjera</value>
+  </data>
+  <data name="MinimalniBrojUsmenihProvjera" xml:space="preserve">
+    <value>Min. usmenih provjera</value>
+  </data>
+  <data name="NazivPredmetaHeader" xml:space="preserve">
+    <value>Naziv predmeta</value>
+  </data>
+  <data name="NazivSkoleHeader" xml:space="preserve">
+    <value>Naziv škole</value>
+  </data>
+  <data name="NazivSmjeraHeader" xml:space="preserve">
+    <value>Naziv smjera</value>
+  </data>
+  <data name="NePredajePredmetMessage" xml:space="preserve">
+    <value>Ne predajete ni jedan predmet!</value>
+  </data>
+  <data name="OcjenaHeader" xml:space="preserve">
+    <value>Ocjena</value>
+  </data>
+  <data name="OdjeljenjeHeader" xml:space="preserve">
+    <value>Odjeljenje</value>
+  </data>
+  <data name="PlataHeader" xml:space="preserve">
+    <value>Plata</value>
+  </data>
+  <data name="PodesavanjaHeader" xml:space="preserve">
+    <value>Podešavanja</value>
+  </data>
+  <data name="PogledajButton" xml:space="preserve">
+    <value>Idi</value>
+  </data>
+  <data name="PolHeader" xml:space="preserve">
+    <value>Pol</value>
+  </data>
+  <data name="PonovljenaHeader" xml:space="preserve">
+    <value>Ponovljena</value>
+  </data>
+  <data name="PotvrdaBrisanjaMessage" xml:space="preserve">
+    <value>Da li zaista želite izbrisati podatke?</value>
+  </data>
+  <data name="PotvrdaPromjeneMessage" xml:space="preserve">
+    <value>Da li želite izvršiti promjenu podataka?</value>
+  </data>
+  <data name="PraznaPoljaError" xml:space="preserve">
+    <value>Polja ne smiju biti prazna!</value>
+  </data>
+  <data name="PredajeHeader" xml:space="preserve">
+    <value>Predavaci na predmetu</value>
+  </data>
+  <data name="PredavaciHeader" xml:space="preserve">
+    <value>Predavači</value>
+  </data>
+  <data name="PredmetiButton" xml:space="preserve">
+    <value>Predmeti</value>
+  </data>
+  <data name="PredmetiHeader" xml:space="preserve">
+    <value>Predmeti</value>
+  </data>
+  <data name="PrezimeHeader" xml:space="preserve">
+    <value>Prezime</value>
+  </data>
+  <data name="ProfesoriButton" xml:space="preserve">
+    <value>Profesori</value>
+  </data>
+  <data name="ProfesoriHeader" xml:space="preserve">
+    <value>Profesori</value>
+  </data>
+  <data name="ProsjekOcjenaHeader" xml:space="preserve">
+    <value>Prosjek ocjena</value>
+  </data>
+  <data name="ProvjeraError" xml:space="preserve">
+    <value>Parametri nisu validni.</value>
+  </data>
+  <data name="ProvjereButton" xml:space="preserve">
+    <value>Provjere</value>
+  </data>
+  <data name="ProvjereHeader" xml:space="preserve">
+    <value>Provjere</value>
+  </data>
+  <data name="RazredError" xml:space="preserve">
+    <value>Razred je u opsegu [1,4]</value>
+  </data>
+  <data name="RazredHeader" xml:space="preserve">
+    <value>Razred</value>
+  </data>
+  <data name="SacuvajButton" xml:space="preserve">
+    <value>Sačuvaj</value>
+  </data>
+  <data name="SkoleButton" xml:space="preserve">
+    <value>Škole</value>
+  </data>
+  <data name="SkoleHeader" xml:space="preserve">
+    <value>Škole</value>
+  </data>
+  <data name="SmjeroviButton" xml:space="preserve">
+    <value>Smjerovi</value>
+  </data>
+  <data name="SmjeroviHeader" xml:space="preserve">
+    <value>Smjerovi</value>
+  </data>
+  <data name="TelefonHeader" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
+  <data name="TemaLabel" xml:space="preserve">
+    <value>Tema</value>
+  </data>
+  <data name="TipHeader" xml:space="preserve">
+    <value>Tip</value>
+  </data>
+  <data name="TipPredmetaHeader" xml:space="preserve">
+    <value>Tip predmeta</value>
+  </data>
+  <data name="TrajanjeGodinaError" xml:space="preserve">
+    <value>Trajanje mora biti između 3 i 5 godina.</value>
+  </data>
+  <data name="TrajanjeGodinaHeader" xml:space="preserve">
+    <value>Trajanje(godina)</value>
+  </data>
+  <data name="TrajanjeHeader" xml:space="preserve">
+    <value>Trajanje</value>
+  </data>
+  <data name="UceniciButton" xml:space="preserve">
+    <value>Ucenici</value>
+  </data>
+  <data name="UceniciHeader" xml:space="preserve">
+    <value>Učenici</value>
+  </data>
+  <data name="VerifikovanHeader" xml:space="preserve">
+    <value>Verifikovan</value>
+  </data>
+  <data name="VrstaSkoleHeader" xml:space="preserve">
+    <value>Vrsta škole</value>
+  </data>
+  <data name="WhiteRB" xml:space="preserve">
+    <value>Svijetla</value>
+  </data>
+  <data name="ZvanjeHeader" xml:space="preserve">
+    <value>Zvanje</value>
+  </data>
+</root>

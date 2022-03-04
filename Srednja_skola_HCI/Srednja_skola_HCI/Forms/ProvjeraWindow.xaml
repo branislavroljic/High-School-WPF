@@ -1,0 +1,103 @@
+﻿<Window x:Class="Srednja_skola_HCI.Forms.ProvjeraWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Srednja_skola_HCI.Forms"
+        xmlns:p="clr-namespace:Srednja_skola_HCI.Util"
+        xmlns:dgx="clr-namespace:DataGridExtensions;assembly=DataGridExtensions"
+         xmlns:sys="clr-namespace:System;assembly=mscorlib"
+         xmlns:tb="clr-namespace:Srednja_skola_HCI"
+        mc:Ignorable="d"
+        Title="ProvjeraWindow" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize"
+        AllowsTransparency="True">
+    <Window.Resources>
+        <Style x:Key="ImageButton" TargetType="Button">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid Background="{TemplateBinding Background}">
+                            <ContentPresenter />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <ObjectDataProvider MethodName="GetValues" ObjectType="{x:Type sys:Enum}" x:Key="GetEnumValues">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="local:TipProvjere"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
+    </Window.Resources>
+    <Border>
+        <Grid Style="{DynamicResource GridStyle }">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="48" />
+                <RowDefinition Height="1" />
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <tb:TopBarUserControl  x:Name="Header"></tb:TopBarUserControl>
+            </Grid>
+            <Grid Grid.Row="1" Background="{DynamicResource SeparatorColor}"/>
+            <Grid Grid.Row="2">
+                <DataGrid Name="provjereDG" 
+              AutoGenerateColumns="False"  ColumnWidth="Auto"
+                   dgx:DataGridFilter.IsAutoFilterEnabled="True">
+
+                    <DataGrid.Columns>
+            <DataGridTemplateColumn Header="{p:Loc DatumHeader}">
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <DatePicker SelectedDate="{Binding Path=Datum}" BorderThickness="0" />
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="{p:Loc RazredHeader}" Binding="{Binding PredmetNaSmjeru.Razred, ValidatesOnExceptions=True}" />
+            <DataGridTextColumn Header="{p:Loc OdjeljenjeHeader}" Binding="{Binding Odjeljenje, ValidatesOnExceptions=True}"  />
+            <DataGridTextColumn Header="{p:Loc NazivPredmetaHeader}" Binding="{Binding PredmetNaSmjeru.Predmet.Naziv}" />
+            <DataGridTextColumn Header="{p:Loc NazivSmjeraHeader}" Binding="{Binding  PredmetNaSmjeru.Smjer.Naziv}"/>
+            <DataGridComboBoxColumn Header="{p:Loc TipHeader}" ItemsSource="{Binding Source={StaticResource GetEnumValues}}" SelectedValueBinding="{Binding Path=TipProvjere}"/>
+            <DataGridTextColumn Header="{p:Loc TrajanjeHeader}" Binding="{Binding Trajanje, ValidatesOnExceptions=True}" />
+            <DataGridTextColumn Header="{p:Loc BrojNegativnihHeader}" Binding="{Binding BrojNegativnihOcjena, ValidatesOnExceptions=True}"  />
+            <DataGridTextColumn Header="{p:Loc BrojPrisutnihHeader}" Binding="{Binding BrojPrisutnihUcenika, ValidatesOnExceptions=True}" />
+            <DataGridCheckBoxColumn Header="{p:Loc PonovljenaHeader}" Binding="{Binding Ponovljena}" />
+            <DataGridTemplateColumn Header="{p:Loc BrisanjeHeader}">
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <Button Style="{StaticResource ImageButton}" Click="Delete_Click"  Cursor="Hand">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Resources/delete-24x24.png" Stretch="Uniform" />
+                            </Button.Background>
+                        </Button>
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+
+        </DataGrid.Columns>
+
+                    <DataGrid.RowValidationRules>
+                        <local:RPValidationRule ValidationStep="UpdatedValue"/>
+                    </DataGrid.RowValidationRules>
+
+                    <DataGrid.RowValidationErrorTemplate>
+                        <ControlTemplate>
+                            <Grid Margin="0,-2,0,-2"
+            ToolTip="{Binding RelativeSource={RelativeSource
+            FindAncestor, AncestorType={x:Type DataGridRow}},
+            Path=(Validation.Errors)[0].ErrorContent}">
+                                <Image Source="/Resources/error.png" ToolTip="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGridRow}}, Path=(Validation.Errors)[0].ErrorContent}"
+                   Margin="0"
+                   Width="11" Height="11" />
+                            </Grid>
+                        </ControlTemplate>
+                    </DataGrid.RowValidationErrorTemplate>
+                </DataGrid>
+    <!--</Grid>-->
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

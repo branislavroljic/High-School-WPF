@@ -1,0 +1,42 @@
+﻿<Window x:Class="Srednja_skola_HCI.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Srednja_skola_HCI"
+         xmlns:p="clr-namespace:Srednja_skola_HCI.Util"
+         xmlns:tb="clr-namespace:Srednja_skola_HCI"
+        mc:Ignorable="d"
+    Height="322" Width="267" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" AllowsTransparency="True">
+
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource FadeIn}"/>
+        </EventTrigger>
+    </Window.Triggers>
+    <Border>
+        <Grid Style="{DynamicResource GridStyle }">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="48" />
+                <RowDefinition Height="1" />
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <tb:TopBarUserControl x:Name="Header"></tb:TopBarUserControl>
+            </Grid>
+            <Grid Grid.Row="1" Background="DimGray"/>
+            <Grid Grid.Row="2">
+                <Button Content="{p:Loc SacuvajButton}" HorizontalAlignment="Center" Margin="0,229,0,0" VerticalAlignment="Top" Height="30" Width="181" Click="Save_Click"/>
+                <RadioButton x:Name="EnRB" GroupName="lang" IsChecked="True" Content="EN" HorizontalAlignment="Left" Margin="56,61,0,0" VerticalAlignment="Top"/>
+                <RadioButton x:Name="SrRB" GroupName="lang" Content="SR" HorizontalAlignment="Left" Margin="182,61,0,0" VerticalAlignment="Top" />
+                <Label HorizontalAlignment="Left" Content="{p:Loc JezikLabel}"  Margin="95,17,0,0" VerticalAlignment="Top"  FontWeight="Bold" FontSize="16"/>
+                <RadioButton x:Name="DarkRB" GroupName="theme" Content="{p:Loc DarkRB}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="106,158,0,0"/>
+                <RadioButton x:Name="WhiteRB" GroupName="theme" Content="{p:Loc WhiteRB}"  IsChecked="True"  HorizontalAlignment="Left" Margin="40,158,0,0" VerticalAlignment="Top"/>
+                <RadioButton x:Name="BlueRB"  GroupName="theme" Content="{p:Loc GreenRB}" HorizontalAlignment="Right" Margin="0,158,27,0" VerticalAlignment="Top"/>
+                <Label Content="{p:Loc TemaLabel}" HorizontalAlignment="Left" Margin="106,105,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

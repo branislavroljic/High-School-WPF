@@ -1,0 +1,50 @@
+﻿<Window x:Class="Srednja_skola_HCI.MenuWindow_Admin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Srednja_skola_HCI"
+        xmlns:p="clr-namespace:Srednja_skola_HCI.Util"
+        mc:Ignorable="d"
+         Height="450" Width="300" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" AllowsTransparency="True">
+
+    <Border>
+        <Grid Style="{DynamicResource GridStyle }">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="48" />
+                <RowDefinition Height="1" />
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="8,0,0,0" Height="40">
+                  
+                    <TextBlock x:Name="Header" FontSize="20" Margin="8,2,0,0" FontWeight="Normal" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Segoe WP" />
+                </StackPanel>
+                <Thumb Opacity="0" Background="Transparent" Foreground="{x:Null}" DragDelta="Thumb_OnDragDelta" />
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,8,0">
+                    <Button  Width="32" Height="28" Style="{StaticResource ImageButton}" Click="Settings_Click" Cursor="Hand">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/Resources/gears.png" Stretch="Uniform" />
+                        </Button.Background>
+                    </Button>
+                    <Button  Width="32" Height="28" Style="{StaticResource ImageButton}" Click="Logout_Cick" Cursor="Hand">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/Resources/logout-icon.png" Stretch="Uniform" />
+                        </Button.Background>
+                    </Button>
+                    
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="1" Background="{DynamicResource SeparatorColor}"/>
+            <Grid Grid.Row="2">
+                <Button Content="{p:Loc SkoleButton}" HorizontalAlignment="Left" Margin="91,55,0,0" VerticalAlignment="Top" Height="26" Width="123" Click="Schools_Click"/>
+                <Button Content="{p:Loc SmjeroviButton}" HorizontalAlignment="Left" Margin="91,115,0,0" VerticalAlignment="Top" Height="28" Width="123" Click="Smjerovi_Click"/>
+                <Button Content="{p:Loc PredmetiButton}" HorizontalAlignment="Left" Margin="91,171,0,0" VerticalAlignment="Top" Height="29" Width="123" Click="PredmetiNaSmjeru_Click"/>
+                <Button Content="{p:Loc ProfesoriButton}" HorizontalAlignment="Left" Margin="91,232,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.391,0.794" Height="25" Width="123" Click="Profesori_Click"/>
+
+                <Image Source="/Resources/school-logo.png" Margin="0,291,0,0"></Image>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>
+
